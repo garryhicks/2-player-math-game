@@ -1,5 +1,6 @@
 require 'byebug'
 require './functions.rb'
+require 'colorize'
 
 @player_one_lives = 3
 @player_two_lives = 3
@@ -16,10 +17,9 @@ end
 
 def main
   intro
-  # p 
   while @player_one_lives != 0 && @player_two_lives != 0
     generate_question
-    prompt_player(@player1)
+    puts prompt_player(@player1)
     answer = gets.chomp.to_i
     result = verify_answer(answer)
     switch_player
@@ -31,13 +31,12 @@ def main
       end
       puts "#{@player1}: #{@player_one_lives} lives"
       puts "#{@player2}: #{@player_two_lives} lives"
-      puts "bohoo wrong!"
+      puts "You are terrible at math!".colorize(:red)
     else 
-      puts "good job!"
+      puts "Nicely done!".colorize(:green)
     end
-
   end 
-  puts "Game over!"
+  puts "Game over! #{@current_player} lost!"
 end
 
 main

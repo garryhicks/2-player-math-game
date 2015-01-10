@@ -9,7 +9,7 @@ def generate_question
 end
 
 def prompt_player(player)
-  puts "#{player} - you're up!"
+  "#{player} - you're up!"
 end
 
 def verify_answer(answer)
